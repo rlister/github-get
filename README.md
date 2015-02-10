@@ -20,7 +20,7 @@ REPO=myorg/myrepo \
 TOKEN=123 \
 github-get \
 path/to/file1:/tmp/one \
-path/to/file1:/tmp/two
+path/to/file2:/tmp/two
 ```
 
 It is fine to mix the `stdout` and `src:dest` syntax if you wish.
