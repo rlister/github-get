@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -9,6 +10,7 @@ import (
 	"strings"
 )
 
+// error handler
 func check(e error) {
 	if e != nil {
 		panic(e.Error())
@@ -55,6 +57,9 @@ func main() {
 		if len(files) > 1 {
 			// mkpath
 			err := os.MkdirAll(path.Dir(files[1]), 0755)
+			// parse json
+			var dir []interface{}
+			err := json.Unmarshal(dirname, &dir)
 			check(err)
 
 			// write the file
