@@ -13,17 +13,27 @@ TOKEN=123 \
 github-get path/to/file
 ```
 
-You may write to local files using the syntax `src:dest`:
+You may write to local files using the syntax `src:dest`, where `dest`
+is a directory:
 
 ```
 REPO=myorg/myrepo \
 TOKEN=123 \
 github-get \
-path/to/file1:/tmp/one \
-path/to/file2:/tmp/two
+  path/to/file1:/tmp/ \
+  path/to/file2:/tmp/
 ```
 
 It is fine to mix the `stdout` and `src:dest` syntax if you wish.
+
+If `src` ends with `/` it is interpreted as a directory, and all first
+level files in the directory are downloaded. This is not recursive.
+
+```
+REPO=myorg/myrepo \
+TOKEN=123 \
+github-get path/to/dir/:/tmp/
+```
 
 ## Docker
 
