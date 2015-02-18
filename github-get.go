@@ -51,7 +51,11 @@ func main() {
 
 		// optionally request output file with src:dest
 		files := strings.SplitN(arg, ":", 2)
-		output := get(files[0])
+		src := files[0]
+
+		// handle src that is a dir
+		if strings.HasSuffix(src, "/") {
+			dirname := get(strings.TrimSuffix(src, "/"))
 
 		// write to requested file, or stdout
 		if len(files) > 1 {
