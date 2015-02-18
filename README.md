@@ -41,7 +41,7 @@ Comes with `Dockerfile`. I build image as follows:
 
 ```
 CGO_ENABLED=0 GOOS=linux go build -a -tags netgo -ldflags '-w' github-get.go
-docker build -r rlister/github-get .
+docker build -t rlister/github-get .
 ```
 
 You can pull ready-made image from docker hub:
